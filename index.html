@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Groups</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="overlay-bg"></div>
+
+    <!-- ========================================= Start Navbar ========================================= -->
+    <div class="container nav_container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand logo" href="#">
+                    <img src="../images/Logo.svg" alt="" width="100">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <img src="../images/Logo.svg" width="100" alt="">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img src="../images/icons/Dashboard-not-active-Icon.svg" alt="">
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="../images/icons/Activity Feed-Icon.png" alt="">
+                                <span>Activity Feed</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="../images/icons/Tools-Icon.png" alt="">
+                                <span>Tools</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="../images/icons/Courses-Icon.png" alt="">
+                                <span>Courses</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="../images/icons/Economic Calendar-Icon.png" alt="">
+                                <span>Economic Calendar</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="../images/icons/Economic Calendar-Icon.png" alt="">
+                                <span>Support</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="#" class="notifications-navbar">
+                            <div class="num-of-notifications">
+                                <span>23</span>
+                            </div>
+                            <img src="../images/icons/Notifications-Icon.svg" alt="">
+                        </a>
+                        <div class="dropdown-navbar">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../images/icons/user-img.png" alt="">
+                                <span class="ml-1">John</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="../Profile/profile.html">
+                                        <img src="../images/icons/Icon-profile.svg" alt="">
+                                        <span>My Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <img src="../images/icons/Icon-settings.svg" alt="">
+                                        <span>Account Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <img src="../images/icons/Connections-Icon.svg" alt="">
+                                        <span>Connections</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <img src="../images/icons/Group-icon.svg" alt="">
+                                        <span>Groups</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <img src="../images/icons/Photos-icon.svg" alt="">
+                                        <span>Photos</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <img src="../images/icons/Email-icon.svg" alt="">
+                                        <span>Email Invites</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <img src="../images/icons/Logout-icon.svg" alt="">
+                                        <span>Logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- ========================================= End Navbar ========================================= -->
+<!--  -->
+<!-- Modal -->
+<div class="modal fade" id="create-group" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   
+    <div class="modal-dialog modal-dialog-for-create-group modal-dialog-scrollable">
+      
+        <div class="modal-content">
+        <div class="create-group-modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Create Group</h1>
+          <button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close">
+            <span>close</span>
+            <img src="../images/icons/Close-icon.svg" alt="">
+          </button>        
+        </div>
+
+        <div class="create-group-modal-body">
+          <div class="profile-cover-container">
+            <div id="preview">
+                <img id="imagePreview" src="../images/create-group-cover-photo.png" alt="Uploaded Image">
+            </div>
+            <div class="upload-photo-cover">
+                <label for="fileInput" class="upload-photo-cover-label">
+                    <img src="../images/icons/Change-photo.svg" alt="">
+                </label>
+                <input type="file" id="fileInput" class="profile-cover-input" accept="image/*">
+            </div>
+            <!--  -->
+            <div class="upload-personal-container">
+                <div id="preview-personal-photo">
+                    <img id="personal-photo" src="../images/personal-photo.png" alt="Uploaded Image">
+                </div>
+                <div class="upload-personal-photo">
+                    <label for="personalPhoto" class="upload-personal-photo-label">
+                        <img src="../images/icons/Change-photo.svg" alt="">
+                    </label>
+                    <input type="file" id="personalPhoto" class="personal-photo-input" accept="image/*">
+                </div>
+            </div>
+            <!--  -->
+            <form action="#">
+                  <div class="group-name-container">
+                    <label for="Group-Name-input" class="form-label">Group Name*</label>
+                    <input type="text" class="form-control" id="Group-Name-input" placeholder="Group name" aria-label="Group name">
+                  </div>
+                <!--  -->
+                <label for="textarea-description" class="form-label">Group Description*</label>
+                <textarea name="textarea-comment" id="textarea-description"  placeholder="Description …"></textarea>
+                <!--  -->
+                <button type="submit" class="mt-3 submit invite-members-btn-1">Invite Members to the Groupn</button>
+              </form>
+            <!--  -->
+            <div class="invite-members-section">
+                <div class="invite-members-header">
+                    <div>
+                        <h1>Members</h1>
+                        <p>You added <span class="num-of-Invite">10</span> Members</p>
+                    </div>
+                    <div>
+                        <button class="remove-all-members-btn">Remove all Members</button>
+                        <button class="invite-members-btn">Invite Members to the Group</button>
+                    </div>
+                </div>
+                <ul class="members-list"> 
+                    <li>
+                        <div>
+                            <img src="../images/icons/user-connection-img-1.svg" alt="">
+                            <span>Charlie Smith</span>
+                        </div>
+                        <div>
+                            <button class="assign-admin-btn">Assign as Admin</button>
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../images/icons/user-connection-img-1.svg" alt="">
+                            <span>Charlie Smith</span>
+                        </div>
+                        <div>
+                            <button class="assign-admin-btn">Assign as Admin</button>
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../images/icons/user-connection-img-1.svg" alt="">
+                            <span>Charlie Smith</span>
+                        </div>
+                        <div>
+                            <button class="assign-admin-btn">Assign as Admin</button>
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="submit-create-group">
+                <button type="submit">Create Group</button>
+            </div>
+            <div class="hidden-div"></div>
+          </div>
+        </div>
+      
+    </div>
+    </div>
+  </div>
+<!--  -->
+    <!-- ========================================= Start Groups Page ========================================= -->
+    <div class="container">
+        <div class="page-title">
+            <p>Groups</p>
+            <button type="button" class="btn create-group-btn" data-bs-toggle="modal" data-bs-target="#create-group">
+                Create a Group
+            </button>
+        </div>
+        <section class="groups-section">
+            <div class="horizontal-collapse">
+                <!-- Tab links -->
+                <div class="tab">
+                    <!--  -->
+                    <button class="tablinks active" onclick="openTap(event, 'my-groups')">
+                        <div class="d-flex  justify-content-center align-items-center">
+                            <p>My Groups <span class="total-num">(0)</span></p>
+                        </div>
+                    </button>
+                    <!--  -->
+                    <button class="tablinks" onclick="openTap(event, 'requested')">
+                        <div>
+                            <p>Requested <span class="total-num">(10)</span></p>
+                        </div>
+                    </button>
+                    <!--  -->
+                    <button class="tablinks" onclick="openTap(event, 'explore')">
+                        <div>
+                            <p>Explore <span class="total-num">(300)</span></p>
+                        </div>
+                    </button>
+                    <!--  -->
+                </div>
+
+                <!-- =========================================  Start Tab content for my-groups =========================================  -->
+                <div id="my-groups" class="tabcontent">
+                    <ul class="my-groups-list">
+                        <li class="my-groups-li">
+                            <img src="../images/icons/my-group-img.svg" alt="">
+                            <!--  -->
+                            <div class="my-group-content">
+                                <div class="group-info">
+                                    <p class="group-name">Harvard Business Review Discussion Group</p>
+                                    <p class="members">300 Members</p>
+                                </div>
+                                <div class="btns">
+                                    <button class="cancel-btn">
+                                        <img src="../images/icons/Group-Logout-icon.svg" alt="">
+                                        <p>Leave this Group</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!--  -->
+                        <li class="my-groups-li">
+                            <img src="../images/icons/my-group-img.svg" alt="">
+                            <!--  -->
+                            <div class="my-group-content">
+                                <div class="group-info">
+                                    <p class="group-name">Harvard Business Review Discussion Group</p>
+                                    <p class="members">300 Members</p>
+                                </div>
+                                <div class="btns">
+                                    <button class="cancel-btn">
+                                        <img src="../images/icons/Group-Logout-icon.svg" alt="">
+                                        <p>Leave this Group</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!--  -->
+                        <li class="my-groups-li">
+                            <img src="../images/icons/my-group-img.svg" alt="">
+                            <!--  -->
+                            <div class="my-group-content">
+                                <div class="group-info">
+                                    <p class="group-name">Harvard Business Review Discussion Group</p>
+                                    <p class="members">300 Members</p>
+                                </div>
+                                <div class="btns">
+                                    <button class="cancel-btn">
+                                        <img src="../images/icons/Group-Logout-icon.svg" alt="">
+                                        <p>Leave this Group</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!--  -->
+                    </ul>
+                </div>
+                <!-- =========================================  End Tab content for my-groups =========================================  -->
+
+                <!-- =========================================  Start Tab content for requested =========================================  -->
+                <div id="requested" class="tabcontent">
+                    <ul class="my-requested-list">
+                        <li class="my-requested-li">
+                            <img src="../images/icons/my-group-img.svg" alt="">
+                            <!--  -->
+                            <div class="my-requested-content">
+                                <div class="request-info">
+                                    <p class="request-name">Harvard Business Review Discussion Group</p>
+                                    <p class="members">300 Members</p>
+                                </div>
+                                <div class="invited-and-btns">
+                                    <div class="invited">
+                                        <div class="d-flex align-items-center">
+                                            <img src="../images/icons/user-img.png" alt="">
+                                            <span class="me-1 invited-name">John</span>
+                                            <span>invited you</span>
+                                        </div>
+                                    </div>
+                                    <div class="btns">
+                                        <button class="ignore-btn">Ignore</button>
+                                        <button class="accept-btn">Accept</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--  -->
+                        <li class="my-requested-li">
+                            <img src="../images/icons/my-group-img.svg" alt="">
+                            <!--  -->
+                            <div class="my-requested-content">
+                                <div class="request-info">
+                                    <p class="request-name">Harvard Business Review Discussion Group</p>
+                                    <p class="members">300 Members</p>
+                                </div>
+                                <div class="invited-and-btns">
+                                    <div class="invited">
+                                        <div class="d-flex align-items-center">
+                                            <img src="../images/icons/user-img.png" alt="">
+                                            <span class="me-1 invited-name">John</span>
+                                            <span>invited you</span>
+                                        </div>
+                                    </div>
+                                    <div class="btns">
+                                        <button class="ignore-btn">Ignore</button>
+                                        <button class="accept-btn">Accept</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--  -->
+                        <li class="my-requested-li">
+                            <img src="../images/icons/my-group-img.svg" alt="">
+                            <!--  -->
+                            <div class="my-requested-content">
+                                <div class="request-info">
+                                    <p class="request-name">Harvard Business Review Discussion Group</p>
+                                    <p class="members">300 Members</p>
+                                </div>
+                                <div class="invited-and-btns">
+                                    <div class="invited">
+                                        <div class="d-flex align-items-center">
+                                            <img src="../images/icons/user-img.png" alt="">
+                                            <span class="me-1 invited-name">John</span>
+                                            <span>invited you</span>
+                                        </div>
+                                    </div>
+                                    <div class="btns">
+                                        <button class="ignore-btn">Ignore</button>
+                                        <button class="accept-btn">Accept</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--  -->
+                    </ul>
+                </div>
+                <!-- =========================================  End Tab content for requested =========================================  -->
+
+                <!-- =========================================  Start Tab content for explore =========================================  -->
+                <div id="explore" class="tabcontent">
+                    <ul class="explore-list">
+                        <li class="explore-li">
+                            <img src="../images/icons/my-group-img.svg" alt="">
+                            <!--  -->
+                            <div class="explore-content">
+                                <div class="explore-info">
+                                    <p class="explore-name">Harvard Business Review Discussion Group</p>
+                                    <p class="members">300 Members</p>
+                                    <p class="explore-details">At Harvard Business Review, we believe in management. If the world’s organizations and institutions were run more effectively, if our leaders made better decisions, if people worked more productively, we believe that all of us would be better off …</p>
+                                </div>
+                                <div class="btns">
+                                    <button class="join-btn">Join Group</button>
+                                </div>
+                            </div>
+                        </li>
+                        <!--  -->
+                        <li class="explore-li">
+                            <img src="../images/Explore-Image.png" alt="">
+                            <!--  -->
+                            <div class="explore-content">
+                                <div class="explore-info">
+                                    <p class="explore-name">Harvard Business Review Discussion Group</p>
+                                    <p class="members">300 Members</p>
+                                    <p class="explore-details">At Harvard Business Review, we believe in management. If the world’s organizations and institutions were run more effectively, if our leaders made better decisions, if people worked more productively, we believe that all of us would be better off …</p>
+                                </div>
+                                <div class="btns">
+                                    <button class="join-btn">Join Group</button>
+                                </div>
+                            </div>
+                        </li>
+                        <!--  -->
+                        <li class="explore-li">
+                            <img src="../images/Explore-Image-2.png" alt="">
+                            <!--  -->
+                            <div class="explore-content">
+                                <div class="explore-info">
+                                    <p class="explore-name">Harvard Business Review Discussion Group</p>
+                                    <p class="members">300 Members</p>
+                                    <p class="explore-details">At Harvard Business Review, we believe in management. If the world’s organizations and institutions were run more effectively, if our leaders made better decisions, if people worked more productively, we believe that all of us would be better off …</p>
+                                </div>
+                                <div class="btns">
+                                    <button class="join-btn">Join Group</button>
+                                </div>
+                            </div>
+                        </li>
+                        <!--  -->
+                        <li class="explore-li" >
+                            <div class="loading-more">
+                                <div class="loader"></div>
+                                <p>Loading more Groups</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- =========================================  End Tab content for explore =========================================  -->
+            </div>
+    </div>
+    <div class="empty">
+        <img src="../images/discover-groups.svg " alt="">
+        <h1>Discover Groups</h1>
+        <p>There are Communities out there that have the same interests as you!
+            Let’s go out and discover them.</p>
+        <a href="#">Let’s Explore</a>
+    </div>
+    <!-- ========================================= End Groups Page ========================================= -->
+
+    <!-- ========================================= Start Footer ========================================= -->
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div>
+                    <img src="../images/Logo-footer.svg" alt="">
+                    <p>© 2023 - All Rights Reserved</p>
+                </div>
+                <div>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="../Contact-us/contact-us.html">Contact us</a> </li>
+                            <li><a href="#">Privacy Policy</a> </li>
+                            <li><a href="../Terms/terms.html">Terms of Use</a> </li>
+                        </ul>
+                    </div>
+                    <div class="footer-social-media-links">
+                        <ul>
+                            <li>
+                                <a href="" class="facebook">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="twitter">
+                                    <i class="fa-brands fa-x-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="telegram">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="Utube">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="discord">
+                                    <i class="fa-brands fa-discord"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ========================================= End Footer ========================================= -->
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="profile-groups.js"></script>
+</body>
+
+</html>
